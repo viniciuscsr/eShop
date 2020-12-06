@@ -20,8 +20,7 @@ h2 {
   margin: 0.1rem;
 }
 
-/* carousel */
-.carousel-item-next,
+* carousel */ .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
   display: flex;
@@ -29,6 +28,8 @@ h2 {
 .carousel-caption {
   position: absolute;
   top: 0;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .carousel-caption h2 {
@@ -37,10 +38,18 @@ h2 {
 
 .carousel img {
   height: 300px;
-  padding: 30px;
+  padding: 40px;
   margin: 40px;
   border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .carousel a {
   margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
 }
