@@ -8,7 +8,7 @@ import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
 import Meta from '../components/Meta';
 import { listProducts } from '../actions/productActions';
-import ProductCarousel from '../components/ProductCarousel';
+import HomeCard from '../components/HomeCard';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -28,7 +28,7 @@ const HomeScreen = ({ match }) => {
     <>
       <Meta />
       {!keyword ? (
-        <ProductCarousel />
+        <HomeCard />
       ) : (
         <Link to='/' className='btn btn-light'>
           Go Back
