@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col } from 'react-bootstrap';
-import Product from '../components/Product';
-import Message from '../components/Message';
-import Loader from '../components/Loader';
-import Paginate from '../components/Paginate';
-import Meta from '../components/Meta';
-import { listProducts } from '../actions/productActions';
-import HomeCard from '../components/HomeCard';
+import { Row, Col, Container } from 'react-bootstrap';
+import Product from '../../components/Product/Product';
+import Message from '../../components/Message';
+import Loader from '../../components/Loader';
+import Paginate from '../../components/Paginate';
+import Meta from '../../components/Meta';
+import { listProducts } from '../../actions/productActions';
+import ImageSlider from '../../components/ImageSlider/ImageSlider';
+import { SliderData } from '../../components/ImageSlider/SliderData';
+import './HomeScreen.css';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -28,7 +30,9 @@ const HomeScreen = ({ match }) => {
     <>
       <Meta />
       {!keyword ? (
-        <HomeCard />
+        <Container className='wide-container'>
+          <ImageSlider slides={SliderData} />
+        </Container>
       ) : (
         <Link to='/' className='btn btn-light'>
           Go Back
@@ -40,7 +44,7 @@ const HomeScreen = ({ match }) => {
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
-        <>
+        <Container>
           <Row>
             {products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
@@ -53,7 +57,7 @@ const HomeScreen = ({ match }) => {
             page={page}
             keyword={keyword ? keyword : ''}
           />
-        </>
+        </Container>
       )}
     </>
   );
