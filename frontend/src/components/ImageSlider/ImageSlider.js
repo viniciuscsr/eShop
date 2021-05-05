@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SliderData } from './SliderData';
 import './ImageSlider.css';
 import { Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const ImageSlider = ({ slides }) => {
   const [current, setCurrent] = useState(0);
@@ -45,9 +46,11 @@ const ImageSlider = ({ slides }) => {
                 />
                 <div className='slider--description'>
                   <h2 className='slider--heading'>{slide.heading}</h2>
-                  <Button className=' slider--button' button>
-                    {slide.cta}
-                  </Button>
+                  <LinkContainer to={slide.url}>
+                    <Button className=' slider--button' button>
+                      {slide.cta}
+                    </Button>
+                  </LinkContainer>
                 </div>
               </>
             )}

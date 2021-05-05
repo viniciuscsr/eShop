@@ -1,0 +1,14 @@
+.product-page {
+  background: #ffffff;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.list-group .list-group-item {
+  border: none;
+}
+
+.product--price {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #43ac6a;
+}

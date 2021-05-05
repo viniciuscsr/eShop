@@ -1,0 +1,14 @@
+.navbar {
+  background: #f5f5f5;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.navbar--search-box {
+  position: absolute;
+  left: 50rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #222;
+}

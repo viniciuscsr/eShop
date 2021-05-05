@@ -1,6 +1,7 @@
 .product-card {
   border: none;
   transition: transform 0.3s;
+  border-radius: 0.5rem;
 }
 
 .product-card:hover {
