@@ -159,6 +159,84 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.json(products);
 });
 
+// @description get headphones
+// @route GET  /api/category/headphones
+// @access public
+
+const getHeadphones = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+
+  const page = Number(req.query.pageNumber) || 1;
+
+  const count = await Product.countDocuments({ category: 'Headphones' });
+  const products = await Product.find({ category: 'Headphones' })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  console.log(count);
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
+// @description get earphones
+// @route GET  /api/category/earphones
+// @access public
+
+const getEarphones = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+
+  const page = Number(req.query.pageNumber) || 1;
+
+  const count = await Product.countDocuments({ category: 'Earphones' });
+  const products = await Product.find({ category: 'Earphones' })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  console.log(count);
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
+// @description get professional headphones
+// @route GET  /api/category/professional-headphones
+// @access public
+
+const getProfessionalHeadphones = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+
+  const page = Number(req.query.pageNumber) || 1;
+
+  const count = await Product.countDocuments({
+    category: 'Professional Headphones',
+  });
+  const products = await Product.find({ category: 'Professional Headphones' })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  console.log(count);
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
+// @description get earbuds
+// @route GET  /api/category/earbuds
+// @access public
+
+const getEarbuds = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+
+  const page = Number(req.query.pageNumber) || 1;
+
+  const count = await Product.countDocuments({ category: 'Earbuds' });
+  const products = await Product.find({ category: 'Earbuds' })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  console.log(count);
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
 export {
   getProducts,
   getProductById,
@@ -167,4 +245,8 @@ export {
   updateProduct,
   createProductReview,
   getTopProducts,
+  getHeadphones,
+  getEarphones,
+  getProfessionalHeadphones,
+  getEarbuds,
 };
