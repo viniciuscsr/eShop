@@ -7,11 +7,6 @@
   align-items: center;
 }
 
-.slider--image {
-  width: 100vw;
-  height: 40rem;
-}
-
 .slider--right-arrow {
   position: absolute;
   top: 50%;
