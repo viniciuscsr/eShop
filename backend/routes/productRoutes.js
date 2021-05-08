@@ -8,10 +8,7 @@ import {
   updateProduct,
   createProductReview,
   getTopProducts,
-  getHeadphones,
-  getEarphones,
-  getProfessionalHeadphones,
-  getEarbuds,
+  getCategory,
 } from '../controllers/productController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
@@ -24,11 +21,6 @@ router
   .delete(protect, admin, deleteProduct)
   .put(protect, admin, updateProduct);
 
-router.route('/category/headphones').get(getHeadphones);
-router.route('/category/earphones').get(getEarphones);
-router
-  .route('/category/professional-headphones')
-  .get(getProfessionalHeadphones);
-router.route('/category/earbuds').get(getEarbuds);
+router.route('/category/:category').get(getCategory);
 
 export default router;
