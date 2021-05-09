@@ -31,38 +31,44 @@ const HomeScreen = ({ match }) => {
     <>
       <Meta />
       {!keyword ? (
-        <Container className='wide-container'>
-          <ImageSlider slides={SliderData} />
-        </Container>
+        <>
+          <Container className='wide-container'>
+            <ImageSlider slides={SliderData} />
+          </Container>
+          <Container>
+            <>
+              <h1>Categories</h1>
+              <Row className='m-4 category-row'>
+                <CategoryButton
+                  category='Headphones'
+                  slug='headphones'
+                  imageSrc='/images/icons/headphones.png'
+                />
+                <CategoryButton
+                  category='Earbuds'
+                  slug='earbuds'
+                  imageSrc='/images/icons/earbuds.png'
+                />
+                <CategoryButton
+                  category='Pro Headphones'
+                  slug='professional-headphones'
+                  imageSrc='/images/icons/ProHeadphones.png'
+                />
+                <CategoryButton
+                  category='Earphones'
+                  slug='earphones'
+                  imageSrc='/images/icons/earphones.png'
+                />
+              </Row>
+            </>
+          </Container>
+        </>
       ) : (
         <Link to='/' className='btn btn-light'>
           Go Back
         </Link>
       )}
       <Container>
-        <h1>Categories</h1>
-        <Row className='m-4 category-row'>
-          <CategoryButton
-            category='Headphones'
-            slug='headphones'
-            imageSrc='/images/icons/headphones.png'
-          />
-          <CategoryButton
-            category='Earbuds'
-            slug='earbuds'
-            imageSrc='/images/icons/earbuds.png'
-          />
-          <CategoryButton
-            category='Pro Headphones'
-            slug='professional-headphones'
-            imageSrc='/images/icons/ProHeadphones.png'
-          />
-          <CategoryButton
-            category='Earphones'
-            slug='earphones'
-            imageSrc='/images/icons/earphones.png'
-          />
-        </Row>
         <h1>Lastest Products</h1>
         {loading ? (
           <Loader />
@@ -77,11 +83,13 @@ const HomeScreen = ({ match }) => {
                 </Col>
               ))}
             </Row>
-            <Paginate
-              pages={pages}
-              page={page}
-              keyword={keyword ? keyword : ''}
-            />
+            {keyword && (
+              <Paginate
+                pages={pages}
+                page={page}
+                keyword={keyword ? keyword : ''}
+              />
+            )}
           </>
         )}
       </Container>
