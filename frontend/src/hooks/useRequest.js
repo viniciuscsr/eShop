@@ -25,8 +25,6 @@ const useRequest = (initUrl) => {
     };
   }, [initUrl]);
 
-  console.log(data);
-
   return { data, loading, error };
 };
 

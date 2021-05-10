@@ -166,7 +166,7 @@ const getTopProducts = asyncHandler(async (req, res) => {
 const getCategory = asyncHandler(async (req, res) => {
   const { category } = req.params;
 
-  const pageSize = 10;
+  const pageSize = 8;
 
   const page = Number(req.query.pageNumber) || 1;
 
