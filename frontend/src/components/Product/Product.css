@@ -2,6 +2,7 @@
   border: none;
   transition: transform 0.3s;
   border-radius: 0.5rem;
+  min-height: 29rem;
 }
 
 .product-card:hover {

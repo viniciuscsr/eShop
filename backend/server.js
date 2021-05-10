@@ -51,6 +51,16 @@ app.use(notFound);
 
 app.use(errorHandler);
 
+process.on('SIGINT', () => {
+  console.log('1exiting…');
+  process.exit();
+});
+
+process.on('exit', () => {
+  console.log('2exiting…');
+  process.exit();
+});
+
 const PORT = process.env.PORT || 7000;
 
 app.listen(

@@ -5,7 +5,7 @@ import asyncHandler from 'express-async-handler';
 // @route GET /api/products
 
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 10;
+  const pageSize = 8;
 
   const page = Number(req.query.pageNumber) || 1;
 
@@ -159,6 +159,25 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.json(products);
 });
 
+// @description get headphones by category
+// @route GET  /api/category/:category
+// @access public
+
+const getCategory = asyncHandler(async (req, res) => {
+  const { category } = req.params;
+
+  const pageSize = 8;
+
+  const page = Number(req.query.pageNumber) || 1;
+
+  const count = await Product.countDocuments({ category: category });
+  const products = await Product.find({ category: category })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
 export {
   getProducts,
   getProductById,
@@ -167,4 +186,5 @@ export {
   updateProduct,
   createProductReview,
   getTopProducts,
+  getCategory,
 };
